@@ -92,3 +92,22 @@ nav ul li a.active {
     transform: translateY(-5px);
 }
 
+/* Banner Slider */
+.banner-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+
