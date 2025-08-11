@@ -1,3 +1,4 @@
+// blogs-data.js
 const blogs = [
     {
         title: "Khush Rehne ka Science – Chhote Chhote Ways se Apka Mood Behtar Banaye Rakhein",
