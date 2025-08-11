@@ -11,7 +11,7 @@
     <!-- Navigation -->
     <header>
         <div class="logo">
-            <img src="banner.png" alt="Yoga With Vivek Logo">
+            <img src="logo.png" alt="Yoga With Vivek Logo">
         </div>
         <nav>
             <ul>
@@ -25,9 +25,13 @@
         </nav>
     </header>
 
-    <!-- Banner Section -->
-    <section class="banner">
-        <img src="banner.png" alt="Yoga Banner">
+    <!-- Banner Slider Section -->
+    <section class="banner-slider">
+        <div class="slides">
+            <img src="banner1.png" alt="Yoga Banner 1">
+            <img src="banner2.png" alt="Yoga Banner 2">
+            <img src="banner3.png" alt="Yoga Banner 3">
+        </div>
     </section>
 
     <!-- Home Content -->
@@ -36,6 +40,20 @@
         <p>Discover the power of Yoga and Pranayama to transform your mind and body. 
         Learn ancient techniques for modern life and embrace wellness, peace, and balance.</p>
     </section>
+
+    <!-- JavaScript for Slider -->
+    <script>
+        let index = 0;
+        const slides = document.querySelector(".slides");
+        const total = slides.children.length;
+
+        function showSlide() {
+            index = (index + 1) % total;
+            slides.style.transform = `translateX(${-index * 100}%)`;
+        }
+
+        setInterval(showSlide, 3000); // Change slide every 3 seconds
+    </script>
 
 </body>
 </html>
