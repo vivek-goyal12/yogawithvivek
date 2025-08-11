@@ -120,3 +120,28 @@ nav ul li a.active {
         height: 250px; /* Mobile height */
     }
 }
+
+.blog-post {
+    text-align: left;
+    max-width: 800px;
+    margin: 20px auto;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.blog-post h2 {
+    color: #009688;
+    margin-bottom: 10px;
+}
+
+.blog-post ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.blog-post ul li {
+    margin-bottom: 5px;
+}
+
