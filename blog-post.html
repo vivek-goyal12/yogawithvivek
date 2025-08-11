@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Yoga With Vivek Logo">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="content">
+    <div id="blog-content" class="blog-post"></div>
+</section>
+
+<script src="blogs-data.js"></script>
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const blogId = parseInt(params.get('id'));
+    const blog = blogs.find(b => b.id === blogId);
+
+    if(blog){
+        document.getElementById('blog-content').innerHTML = `
+            <h2>${blog.title}</h2>
+            <img src="${blog.image}" alt="${blog.title}" style="width:100%; border-radius:8px; margin-bottom:15px;">
+            ${blog.content}
+        `;
+    } else {
+        document.getElementById('blog-content').innerHTML = `<p>Blog not found.</p>`;
+    }
+</script>
+
+</body>
+</html>
