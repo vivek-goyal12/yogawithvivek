@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs - Yoga With Vivek</title>
+    <title>Yoga With Vivek - Blogs</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Navigation -->
     <header>
         <div class="logo">
             <img src="logo.png" alt="Yoga With Vivek Logo">
@@ -25,26 +24,27 @@
         </nav>
     </header>
 
-    <!-- Blog Section -->
     <section class="content">
         <h1>Our Blogs</h1>
-        <div id="blog-container"></div>
+        <div id="blog-list"></div>
     </section>
 
     <script src="blogs-data.js"></script>
     <script>
-        const container = document.getElementById("blog-container");
+        const blogList = document.getElementById('blog-list');
 
         blogs.forEach(blog => {
-            const blogElement = document.createElement("div");
-            blogElement.classList.add("blog-post");
-            blogElement.innerHTML = `
+            const blogCard = document.createElement('div');
+            blogCard.classList.add('blog-card');
+
+            blogCard.innerHTML = `
+                <img src="${blog.image}" alt="${blog.title}" class="blog-image">
                 <h2>${blog.title}</h2>
-                <small><em>${blog.date}</em></small>
-                <p>${blog.content}</p>
-                <hr>
+                <p>${blog.excerpt}</p>
+                <a href="blog-post.html?id=${blog.id}" class="read-more">Read More</a>
             `;
-            container.appendChild(blogElement);
+
+            blogList.appendChild(blogCard);
         });
     </script>
 
