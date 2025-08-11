@@ -8,10 +8,10 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Navigation -->
     <header>
         <div class="logo">
-            <img src="banner.png" alt="Yoga With Vivek Logo">
+            <img src="logo.png" alt="Yoga With Vivek Logo">
         </div>
         <nav>
             <ul>
@@ -27,31 +27,26 @@
 
     <!-- Blog Section -->
     <section class="content">
-        <h1>Yoga & Pranayama Blogs</h1>
-        
-        <!-- Blog 1 -->
-        <div class="blog-post">
-            <h2>Khush Rehne ka Science – Chhote Chhote Ways se Apka Mood Behtar Banaye Rakhein</h2>
-            <p><em>Posted on: 11 August 2025</em></p>
-            <p>
-                Khushi sirf ek emotion nahi, balki ek science hai. Jab hum chhote-chhote positive habits apnate hain, 
-                to hamare dimaag me dopamine aur serotonin jaise “happy hormones” release hote hain, jo mood ko uplift karte hain.  
-            </p>
-            <h3>Yeh Rahe Kuch Simple Ways:</h3>
-            <ul>
-                <li>Subah uthte hi deep breathing & gratitude practice karein.</li>
-                <li>Din me kam se kam 10 minute dhup me baithein.</li>
-                <li>Kisi apne ko call karke unka haal puchhein.</li>
-                <li>Din me 5 minute bina phone ke sirf apne saath bitayein.</li>
-                <li>Chhoti chhoti jeet ka celebration karein.</li>
-            </ul>
-            <p>
-                Jab aap ye chhote steps adopt karte ho, to aap apne mood ko naturally positive rakh pate ho.  
-                Khushi ek daily practice hai – aaj se shuru kijiye!
-            </p>
-        </div>
-        
+        <h1>Our Blogs</h1>
+        <div id="blog-container"></div>
     </section>
+
+    <script src="blogs-data.js"></script>
+    <script>
+        const container = document.getElementById("blog-container");
+
+        blogs.forEach(blog => {
+            const blogElement = document.createElement("div");
+            blogElement.classList.add("blog-post");
+            blogElement.innerHTML = `
+                <h2>${blog.title}</h2>
+                <small><em>${blog.date}</em></small>
+                <p>${blog.content}</p>
+                <hr>
+            `;
+            container.appendChild(blogElement);
+        });
+    </script>
 
 </body>
 </html>
