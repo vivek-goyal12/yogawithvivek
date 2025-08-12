@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Write Blog – Yoga with Vivek</title>
+  <script src="https://cdn.jsdelivr.net/npm/tinymce@7/tinymce.min.js"></script>
+</head>
+<body>
+  <h1>Write Blog</h1>
+  <input id="blog-title" type="text" placeholder="Blog Title" style="width:100%; padding:8px; margin-bottom:10px; font-size:1.2rem;"/>
+  <textarea id="editor"></textarea>
+  <button onclick="saveBlog()" style="padding:10px 15px; margin-top:10px;">Publish Blog</button>
+
+  <script>
+    tinymce.init({ selector: '#editor', height: 300 });
+
+    function saveBlog() {
+      const title = document.getElementById('blog-title').value;
+      const content = tinymce.get('editor').getContent();
+      if (!title || !content) {
+        alert('Please add both title and content.');
+        return;
+      }
+      const blog = { title, content, date: new Date().toLocaleDateString() };
+      const blogs = JSON.parse(localStorage.getItem('blogs') || '[]');
+      blogs.unshift(blog); // Add latest first
+      localStorage.setItem('blogs', JSON.stringify(blogs));
+      alert('Blog published!');
+      location.href = 'blogs.html';
+    }
+  </script>
+</body>
+</html>
